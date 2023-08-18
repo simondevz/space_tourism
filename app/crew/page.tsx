@@ -12,8 +12,33 @@ import Content from "../content";
 import { useState } from "react";
 
 export default function Destination() {
-  const images = [img0, img1, img2, img3];
   const [current, setCurrent] = useState(0);
+  const images = [
+    <Image
+      key={0}
+      src={img0}
+      className="w-44 mx-auto h-52 sm:max-lg:w-[20rem] sm:max-lg:h-[25rem] lg:h-[30rem] lg:w-[25rem] "
+      alt={`Picture of  a crew member named ${data.crew[current].name}`}
+    />,
+    <Image
+      key={1}
+      src={img1}
+      className="w-44 mx-auto h-52 sm:max-lg:w-[20rem] sm:max-lg:h-[25rem] lg:h-[30rem] lg:w-[25rem] "
+      alt={`Picture of  a crew member named ${data.crew[current].name}`}
+    />,
+    <Image
+      key={2}
+      src={img2}
+      className="w-44 mx-auto h-52 sm:max-lg:w-[20rem] sm:max-lg:h-[25rem] lg:h-[30rem] lg:w-[25rem] "
+      alt={`Picture of  a crew member named ${data.crew[current].name}`}
+    />,
+    <Image
+      key={3}
+      src={img3}
+      className="w-44 mx-auto h-52 sm:max-lg:w-[20rem] sm:max-lg:h-[25rem] lg:h-[30rem] lg:w-[25rem] "
+      alt={`Picture of  a crew member named ${data.crew[current].name}`}
+    />,
+  ];
 
   const button_style: string = "rounded-full w-2 h-2 ";
   const selected_style: string = " bg-white";
@@ -23,11 +48,7 @@ export default function Destination() {
       <AboutLine num="02" text={"Meet your crew".toUpperCase()} />
 
       <span className="flex flex-col justify-center w-screen sm:max-lg:order-last lg:order-last lg:self-end lg:my-[-5rem]">
-        <Image
-          className="w-44 mx-auto h-52 sm:max-lg:w-[20rem] sm:max-lg:h-[25rem] lg:h-[30rem] lg:w-[25rem] "
-          src={images[current]}
-          alt={`Picture of  a crew member named ${data.crew[current].name}`}
-        />
+        {images[current]}
         <span className="h-px flex  mx-auto justify-self-center w-4/5 bg-[#383B4B] lg:hidden"></span>
       </span>
 

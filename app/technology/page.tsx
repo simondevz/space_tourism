@@ -14,8 +14,47 @@ import Content from "../content";
 import { useState } from "react";
 
 export default function Destination() {
-  const images_potrait = [img0_portrait, img1_portrait, img2_portrait];
-  const images_landscape = [img0_landscape, img1_landscape, img2_landscape];
+  const images_landscape = [
+    <Image
+      key={0}
+      className="w-full lg:hidden"
+      src={img0_landscape}
+      alt="picture of the technology"
+    />,
+    <Image
+      key={1}
+      className="w-full lg:hidden"
+      src={img1_landscape}
+      alt="picture of the technology"
+    />,
+    <Image
+      key={2}
+      className="w-full lg:hidden"
+      src={img2_landscape}
+      alt="picture of the technology"
+    />,
+  ];
+
+  const images_potrait = [
+    <Image
+      key={0}
+      className="w-[20rem] h-[20rem] hidden lg:flex order-last self-end"
+      src={img0_portrait}
+      alt="picture of the technology"
+    />,
+    <Image
+      key={1}
+      className="w-[20rem] h-[20rem] hidden lg:flex order-last self-end"
+      src={img1_portrait}
+      alt="picture of the technology"
+    />,
+    <Image
+      key={2}
+      className="w-[20rem] h-[20rem] hidden lg:flex order-last self-end"
+      src={img2_portrait}
+      alt="picture of the technology"
+    />,
+  ];
 
   const [current, setCurrent] = useState(0);
   const button_style: string =
@@ -26,16 +65,8 @@ export default function Destination() {
     <div className="w-screen h-screen flex flex-col py-20 justify-around lg:flex-row lg:justify-between lg:gap-10">
       <AboutLine num="03" text={"SPACE LAUNCH 101".toUpperCase()} />
 
-      <Image
-        className="w-full lg:hidden"
-        src={images_landscape[current]}
-        alt="picture of the technology"
-      />
-      <Image
-        className="w-[20rem] h-[20rem] hidden lg:flex order-last self-end"
-        src={images_potrait[current]}
-        alt="picture of the technology"
-      />
+      {images_landscape[current]}
+      {images_potrait[current]}
 
       <nav className="flex justify-center gap-x-4 lg:flex-col lg:justify-between lg:h-2/5 lg:self-end lg:mb-[5rem] lg:pl-[10rem]">
         <button
