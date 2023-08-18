@@ -2,7 +2,7 @@ import Content from "./content";
 
 export default function Home() {
   return (
-    <div className="flex flex-col gap-20 px-4 py-20 w-screen h-screen justify-around">
+    <div className="flex flex-col gap-20 px-4 py-20 w-screen h-screen justify-around lg:flex-row lg:justify-around lg:content-end">
       <Content
         intro=" So, you want to travel to"
         header="Space"
@@ -10,8 +10,8 @@ export default function Home() {
         page="home"
       />
 
-      <span className="self-stretch flex justify-center">
-        <button className="rounded-full bg-white w-36 h-36 text-explore-btn font-bellefair">
+      <span className="self-stretch flex justify-center lg:self-end ">
+        <button className="rounded-full bg-white w-36 h-36 text-explore-btn font-bellefair lg:text-[2rem] lg:w-[17rem] lg:h-[17rem] hover:outline hover:outline-[3rem] lg:hover:outline-[5rem] hover:outline-white/20">
           EXPLORE
         </button>
       </span>

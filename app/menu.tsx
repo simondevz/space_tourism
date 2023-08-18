@@ -13,22 +13,27 @@ export default function Menu({
   onClick: any;
 }) {
   const path: string = usePathname();
-  const active_style = "sm:max-lg:border-b-2 ";
+  const active_style = "sm:max-lg:border-b-2 lg:border-b-2 ";
+  const hover_style =
+    "sm:max-lg:hover:border-b-2 lg:hover:border-b-2 lg:hover:border-white/50 sm:max-lg:hover:border-white/50 ";
 
   return (
     <div
       className={
-        "absolute w-3/4  sm:max-lg:w-3/5 flex-col right-0 bg-white/4 h-full sm:max-lg:h-fit gap-6 p-8 sm:max-lg:py-0 backdrop-blur-2xl  sm:max-lg:flex" +
+        "absolute w-3/4  sm:max-lg:w-3/5 lg:w-3/5 flex-col right-0 bg-white/4 h-full sm:max-lg:h-fit lg:h-fit gap-6 p-8 sm:max-lg:py-0 lg:my-10 lg:py-0 backdrop-blur-2xl  sm:max-lg:flex lg:flex" +
         (display ? " flex" : " hidden")
       }
     >
-      <div className="flex flex-row-reverse  sm:max-lg:hidden">
+      <div className="flex flex-row-reverse  sm:max-lg:hidden lg:hidden">
         <Image onClick={onClick} src={close} alt="Close menu" />
       </div>
 
-      <div className="flex gap-8 flex-col sm:max-lg:justify-around sm:max-lg:flex-row  sm:max-lg:gap-x-4">
+      <div className="flex gap-8 flex-col sm:max-lg:justify-around sm:max-lg:flex-row  sm:max-lg:gap-x-4 lg:justify-around lg:flex-row  lg:gap-x-4">
         <Link
-          className={"sm:max-lg:py-8 " + (path === "/" ? active_style : "")}
+          className={
+            "sm:max-lg:py-8 lg:py-6 " +
+            (path === "/" ? active_style : hover_style)
+          }
           onClick={onClick}
           href={"/"}
         >
@@ -39,7 +44,8 @@ export default function Menu({
         </Link>
         <Link
           className={
-            "sm:max-lg:py-8 " + (path === "/destination" ? active_style : "")
+            "sm:max-lg:py-8 lg:py-6 " +
+            (path === "/destination" ? active_style : hover_style)
           }
           onClick={onClick}
           href={"/destination"}
@@ -50,7 +56,10 @@ export default function Menu({
           <span className=" font-barlowCondenced">DESTINATION</span>
         </Link>
         <Link
-          className={"sm:max-lg:py-8 " + (path === "/crew" ? active_style : "")}
+          className={
+            "sm:max-lg:py-8 lg:py-6 " +
+            (path === "/crew" ? active_style : hover_style)
+          }
           onClick={onClick}
           href={"/crew"}
         >
@@ -61,7 +70,8 @@ export default function Menu({
         </Link>
         <Link
           className={
-            "sm:max-lg:py-8 " + (path === "/technology" ? active_style : "")
+            "sm:max-lg:py-8 lg:py-6  " +
+            (path === "/technology" ? active_style : hover_style)
           }
           onClick={onClick}
           href={"/technology"}
