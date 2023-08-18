@@ -14,27 +14,7 @@ import Content from "../content";
 import { useState } from "react";
 
 export default function Destination() {
-  const images_landscape = [
-    <Image
-      key={0}
-      className="w-full lg:hidden"
-      src={img0_landscape}
-      alt="picture of the technology"
-    />,
-    <Image
-      key={1}
-      className="w-full lg:hidden"
-      src={img1_landscape}
-      alt="picture of the technology"
-    />,
-    <Image
-      key={2}
-      className="w-full lg:hidden"
-      src={img2_landscape}
-      alt="picture of the technology"
-    />,
-  ];
-
+  const [current, setCurrent] = useState(0);
   const images_potrait = [
     <Image
       key={0}
@@ -56,7 +36,6 @@ export default function Destination() {
     />,
   ];
 
-  const [current, setCurrent] = useState(0);
   const button_style: string =
     "rounded-full border font-bellefair w-10 h-10 border-white/50";
   const selected_style: string = " bg-white text-black";
@@ -65,7 +44,25 @@ export default function Destination() {
     <div className="w-screen h-screen flex flex-col py-20 justify-around lg:flex-row lg:justify-between lg:gap-10">
       <AboutLine num="03" text={"SPACE LAUNCH 101".toUpperCase()} />
 
-      {images_landscape[current]}
+      <Image
+        key={0}
+        className={"w-full lg:hidden" + (current !== 0 ? " hidden" : "")}
+        src={img0_landscape}
+        alt="picture of the technology"
+      />
+      <Image
+        key={1}
+        className={"w-full lg:hidden" + (current !== 1 ? " hidden" : "")}
+        src={img1_landscape}
+        alt="picture of the technology"
+      />
+      <Image
+        key={2}
+        className={"w-full lg:hidden" + (current !== 2 ? " hidden" : "")}
+        src={img2_landscape}
+        alt="picture of the technology"
+      />
+
       {images_potrait[current]}
 
       <nav className="flex justify-center gap-x-4 lg:flex-col lg:justify-between lg:h-2/5 lg:self-end lg:mb-[5rem] lg:pl-[10rem]">
