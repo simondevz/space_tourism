@@ -12,8 +12,33 @@ import Content from "../content";
 import { useState } from "react";
 
 export default function Destination() {
-  const images = [moonImg, marsImg, europaImg, titanImg];
   const [current, setCurrent] = useState(0);
+  const images = [
+    <Image
+      key={0}
+      src={moonImg}
+      className="w-52 h-52 mx-auto sm:max-lg:w-[20rem] sm:max-lg:h-[20rem] lg:my-auto lg:w-[27rem] lg:h-[27rem]"
+      alt={`picture of ${data.destinations[current].name}`}
+    />,
+    <Image
+      key={1}
+      src={marsImg}
+      className="w-52 h-52 mx-auto sm:max-lg:w-[20rem] sm:max-lg:h-[20rem] lg:my-auto lg:w-[27rem] lg:h-[27rem]"
+      alt={`picture of ${data.destinations[current].name}`}
+    />,
+    <Image
+      key={2}
+      src={europaImg}
+      className="w-52 h-52 mx-auto sm:max-lg:w-[20rem] sm:max-lg:h-[20rem] lg:my-auto lg:w-[27rem] lg:h-[27rem]"
+      alt={`picture of ${data.destinations[current].name}`}
+    />,
+    <Image
+      key={3}
+      src={titanImg}
+      className="w-52 h-52 mx-auto sm:max-lg:w-[20rem] sm:max-lg:h-[20rem] lg:my-auto lg:w-[27rem] lg:h-[27rem]"
+      alt={`picture of ${data.destinations[current].name}`}
+    />,
+  ];
 
   const button_style: string =
     "font-destination-nav font-barlowCondenced sm:max-lg:text-[1rem]s";
@@ -27,11 +52,7 @@ export default function Destination() {
   return (
     <div className="w-screen h-screen flex flex-col py-20 justify-around lg:flex-row lg:justify-between">
       <AboutLine num="01" text="pick your destination" />
-      <Image
-        src={images[current]}
-        className="w-52 h-52 mx-auto sm:max-lg:w-[20rem] sm:max-lg:h-[20rem] lg:my-auto lg:w-[27rem] lg:h-[27rem]"
-        alt={`picture of ${data.destinations[current].name}`}
-      />
+      {images[current]}
 
       <div className="flex flex-col lg:justify-start lg:h-fit lg:my-auto lg:pt-12 lg:w-2/5 lg:gap-4 gap-8">
         <nav className="flex justify-center gap-x-8 lg:text-[1rem] lg:self-start">
