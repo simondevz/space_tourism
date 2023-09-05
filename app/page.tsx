@@ -1,6 +1,8 @@
 import Content from "./content";
+import { useRouter } from "next/navigation";
 
 export default function Home() {
+  const router = useRouter();
   return (
     <div className="flex flex-col gap-20 px-4 py-20 w-screen h-screen justify-around lg:flex-row lg:justify-around lg:content-end">
       <Content
@@ -11,7 +13,10 @@ export default function Home() {
       />
 
       <span className="self-stretch flex justify-center lg:self-end ">
-        <button className="rounded-full bg-white w-36 h-36 text-explore-btn font-bellefair lg:text-[2rem] lg:w-[17rem] lg:h-[17rem] hover:outline hover:outline-[3rem] lg:hover:outline-[5rem] hover:outline-white/20">
+        <button
+          onClick={() => router.push("/destination")}
+          className="rounded-full bg-white w-36 h-36 text-explore-btn font-bellefair lg:text-[2rem] lg:w-[17rem] lg:h-[17rem] hover:outline hover:outline-[3rem] lg:hover:outline-[5rem] hover:outline-white/20"
+        >
           EXPLORE
         </button>
       </span>
