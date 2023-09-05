@@ -1,3 +1,5 @@
+"use client";
+
 import Content from "./content";
 import { useRouter } from "next/navigation";
 
